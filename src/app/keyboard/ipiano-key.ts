@@ -1,4 +1,4 @@
 export interface IPianoKey {
-  whiteKeyId: number;
-  blackKeyId?: number;
+    whiteKeyId: number;
+    blackKeyId?: number;
 }

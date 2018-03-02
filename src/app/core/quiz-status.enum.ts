@@ -1,6 +1,6 @@
 export enum QuizStatus {
-  Starting,
-  InProgress,
-  Finished,
-  None
+    Starting,
+    InProgress,
+    Finished,
+    None
 }

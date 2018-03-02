@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+
 import { Subject } from 'rxjs/Subject';
 
 import { PianoNote } from './piano-note';
@@ -13,9 +14,9 @@ export class QuizService {
   private quizResults: QuizResult[] = [];
   private quizIndex = 0;
 
-  inProgress: boolean = false;
-  correct: number = 0;
-  incorrect: number = 0;
+  inProgress = false;
+  correct = 0;
+  incorrect = 0;
   status: QuizStatus = QuizStatus.None;
 
   // Observable sources
@@ -41,8 +42,8 @@ export class QuizService {
     this.incorrect = 0;
 
     // generate random notes from the availableNotes array
-    for(let i=0;i<this.quizLength;i++) {
-      this.quizNotes.push( availableNotes[Math.floor(Math.random()* availableNotes.length)] );
+    for (let i = 0; i < this.quizLength; i++) {
+      this.quizNotes.push(availableNotes[Math.floor(Math.random() * availableNotes.length)]);
     }
   }
 
@@ -50,10 +51,10 @@ export class QuizService {
     return this.quizNotes[this.quizIndex];
   }
 
-  next() : boolean {
+  next(): boolean {
 
     // check if quiz has finished
-    if(this.quizIndex == (this.quizLength - 1)) {
+    if (this.quizIndex === (this.quizLength - 1)) {
       this.inProgress = false;
       return false;
     }
@@ -63,13 +64,12 @@ export class QuizService {
     return true;
   }
 
-  recordResult(selectedKeyId:number, actualNote: PianoNote) {
+  recordResult(selectedKeyId: number, actualNote: PianoNote) {
 
     // update score
-    if(selectedKeyId == actualNote.keyId){
+    if (selectedKeyId === actualNote.keyId) {
       this.correct++;
-    }
-    else {
+    } else {
       this.incorrect++;
     }
 

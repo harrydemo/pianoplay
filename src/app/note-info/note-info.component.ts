@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription }   from 'rxjs/Subscription';
+import { Subscription } from 'rxjs/Subscription';
 
 import { PianoNote } from '../core/piano-note';
 import { PianoService } from '../core/piano.service';
@@ -14,19 +14,19 @@ export class NoteInfoComponent implements OnInit {
   subscription: Subscription;
   currentNote: PianoNote;
   alternateNote?: PianoNote;
-  title: string = "Play";
+  title = 'Play';
 
   constructor(private pianoService: PianoService) {
     this.subscription = pianoService.notePlayed$.subscribe(
       pianoNote => {
-         this.title = "Now playing";
-         this.currentNote = pianoNote;
-         this.alternateNote = this.pianoService.getAlternateNote(pianoNote.noteId);
-    });
+        this.title = 'Now playing';
+        this.currentNote = pianoNote;
+        this.alternateNote = this.pianoService.getAlternateNote(pianoNote.noteId);
+      });
   }
 
   ngOnInit() {
-     //console.log("ngOnInit");
+    // console.log("ngOnInit");
   }
 
   ngOnDestroy() {
@@ -35,7 +35,7 @@ export class NoteInfoComponent implements OnInit {
   }
 
   playNote(note: PianoNote): void {
-    //console.log(note);
+    // console.log(note);
     this.pianoService.playNote(note.noteId);
   }
 

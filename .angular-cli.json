@@ -1,7 +1,7 @@
 {
     "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
     "project": {
-        "name": "piano"
+        "name": "piano-play"
     },
     "apps": [{
         "root": "src",
@@ -21,9 +21,8 @@
             "styles.css"
         ],
         "scripts": [
-            "./assest/lib/verovio-toolkit.js"
+            "./assets/lib/verovio-toolkit.js"
         ],
-        "scripts": [],
         "environmentSource": "environments/environment.ts",
         "environments": {
             "dev": "environments/environment.ts",

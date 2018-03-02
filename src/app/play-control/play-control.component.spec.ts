@@ -1,7 +1,4 @@
-/* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
 
 import { PlayControlComponent } from './play-control.component';
 
@@ -25,5 +22,4 @@ describe('PlayControlComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
 });

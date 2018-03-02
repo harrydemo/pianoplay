@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnInit, OnDestroy, trigger, state, style, transition, animate } from '@angular/core';
-import { Subscription }   from 'rxjs/Subscription';
+import { Subscription } from 'rxjs/Subscription';
 
 import { PianoNote } from '../core/piano-note';
 import { QuizService } from '../core/quiz.service';
@@ -24,13 +24,12 @@ export class QuizInfoComponent implements OnInit {
   constructor(private quizService: QuizService) {
     this.subscription = quizService.quizResult$.subscribe(
       result => {
-        if(result.selectedKeyId == result.actualNote.keyId){
-          this.message = "\u2714 Correct, well done!";
+        if (result.selectedKeyId === result.actualNote.keyId) {
+          this.message = '\u2714 Correct, well done!';
+        } else {
+          this.message = '\u2718 Incorrect';
         }
-        else {
-          this.message = "\u2718 Incorrect";
-        }
-    });
+      });
   }
 
   ngOnInit() {
@@ -42,11 +41,11 @@ export class QuizInfoComponent implements OnInit {
   }
 
   handleStartBtnClick(value: string) {
-     this.buttonClicked.emit( {button:'start', level:value} );
+    this.buttonClicked.emit({ button: 'start', level: value });
   }
 
   handleTryAgainBtnClick() {
-     this.buttonClicked.emit( {button:'try-again'} );
-     this.message = "";
+    this.buttonClicked.emit({ button: 'try-again' });
+    this.message = '';
   }
 }

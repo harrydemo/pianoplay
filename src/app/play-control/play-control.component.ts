@@ -11,18 +11,18 @@ export class PlayControlComponent implements OnInit {
   PianoMode = PianoMode; // allows template access to PianoMode enum
   @Input() title: string;
   @Input() mode: PianoMode;
-  @Output() modeSelected = new EventEmitter<PianoMode>()
+  @Output() modeSelected = new EventEmitter<PianoMode>();
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  handlePlayBtnClick(){
+  handlePlayBtnClick() {
     this.modeSelected.emit(PianoMode.Play);
   }
 
-  handleQuizBtnClick(){
+  handleQuizBtnClick() {
     this.modeSelected.emit(PianoMode.Quiz);
   }
 }
